@@ -1,6 +1,8 @@
 FROM microsoft/dotnet
 
+RUN mkdir -p /sso/out
 WORKDIR /sso
+
 
 # copy project.json and restore as distinct layers
 COPY project.json .
