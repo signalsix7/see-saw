@@ -10,5 +10,5 @@ RUN dotnet restore
 
 # copy and build everything else
 COPY . .
-RUN dotnet publish -c Release -o out
+RUN dotnet publish --configuration Release --output out
 ENTRYPOINT ["dotnet", "out/sso.dll"]
