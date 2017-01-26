@@ -1,6 +1,6 @@
 FROM microsoft/dotnet
 
-WORKDIR /dotnetapp
+WORKDIR /sso
 
 # copy project.json and restore as distinct layers
 COPY project.json .
@@ -9,4 +9,4 @@ RUN dotnet restore
 # copy and build everything else
 COPY . .
 RUN dotnet publish -c Release -o out
-ENTRYPOINT ["dotnet", "out/dotnetapp.dll"]
+ENTRYPOINT ["dotnet", "out/sso.dll"]
