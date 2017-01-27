@@ -1,6 +1,6 @@
-FROM microsoft/dotnet
+FROM microsoft/aspnetcore-build
 
-RUN mkdir -p /sso/out
+RUN mkdir -p /sso/published
 WORKDIR /sso
 
 
@@ -10,5 +10,5 @@ RUN dotnet restore
 
 # copy and build everything else
 COPY . .
-RUN dotnet publish --configuration Release --output out
-ENTRYPOINT ["dotnet", "out/sso.dll"]
+RUN dotnet publish --configuration Release --output published
+ENTRYPOINT ["dotnet", "published/sso.dll"]
